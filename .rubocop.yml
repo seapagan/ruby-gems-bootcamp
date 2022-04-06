@@ -1,0 +1,12 @@
+AllCops:
+  NewCops: enable
+
+Style/SymbolArray:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 35
+
+Layout/LineLength:
+  Max: 100
+  AllowHeredoc: true

@@ -1,4 +1,9 @@
-<h1>
-  Hello World!
-</h1>
-<%= link_to "Privacy Policy", privacy_policy_path %>
+<div class="container-fluid">
+  <h1>
+    Hello World!
+  </h1>
+  <%= link_to privacy_policy_path, class: "btn btn-lg btn-warning" do %>
+    <i class="fas fa-file-word"></i>
+    Privacy Policy
+  <% end %>
+</div>
