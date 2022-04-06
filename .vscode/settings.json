@@ -13,7 +13,8 @@
   "ruby.rubocop.onSave": true,
   "ruby.rubocop.useBundler": true,
   "ruby.useBundler": true,
-  "ruby.useLanguageServer": true
+  "ruby.useLanguageServer": true,
+  "sqltools.connections": []
   // "rubyTestExplorer.testFramework": "rspec",
   // "rubyTestExplorer.minitestDirectory": "./spec/",
   // "rubyTestExplorer.logpanel": true
