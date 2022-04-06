@@ -1,0 +1,20 @@
+{
+  "errorLens.enabled": false,
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "reek": {
+      "useBundler": true
+    },
+    "rubocop": {
+      "useBundler": true
+    },
+    "standard": false
+  },
+  "ruby.rubocop.onSave": true,
+  "ruby.rubocop.useBundler": true,
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true
+  // "rubyTestExplorer.testFramework": "rspec",
+  // "rubyTestExplorer.minitestDirectory": "./spec/",
+  // "rubyTestExplorer.logpanel": true
+}
