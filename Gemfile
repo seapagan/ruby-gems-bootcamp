@@ -49,6 +49,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'devise', '~> 4.8'
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'htmlbeautifier', '~> 1.4'
+gem 'omniauth-facebook'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'omniauth-twitter'
 gem 'rubocop', '~> 1.26' # , group: :development
