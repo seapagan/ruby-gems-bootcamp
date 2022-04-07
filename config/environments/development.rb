@@ -8,6 +8,7 @@ Rails.application.configure do
 
   # local dev
   config.hosts << 'test.grantramsay.dev'
+  config.web_console.permissions = '192.168.0.10'
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
