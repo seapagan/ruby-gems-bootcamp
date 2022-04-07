@@ -12,6 +12,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def ban
+    @user = User.find(params[:id])
+    if @user.access_locked?
+      @user.unlock_access!
+    else
+      @user.lock_access!
+    end
+    redirect_to @user, notice: "User access locked: #{@user.access_locked?}"
+  end
+
   # destroy (delete) the selected user
   def destroy
     @user = User.find(params[:id])
