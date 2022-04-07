@@ -1,6 +1,6 @@
 # frozen-string-literal: true
 
-class ConfirmationsController < Devise::ConfirmationsController
+class Users::ConfirmationsController < Devise::ConfirmationsController
   private
 
   def after_confirmation_path_for(_resource_name, resource)

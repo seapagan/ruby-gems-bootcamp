@@ -10,3 +10,9 @@ Metrics/BlockLength:
 Layout/LineLength:
   Max: 100
   AllowHeredoc: true
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/OrAssignment:
+  Enabled: false
