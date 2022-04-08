@@ -1,7 +1,9 @@
+# frozen-string-literal: true
+
+# define the User class which will, surprisingly, hold all our registered users.
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # :timeoutable
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable, :lockable,
          :omniauthable, omniauth_providers: [:google_oauth2, :github, :twitter, :facebook]

@@ -102,6 +102,9 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    devise_invitable (2.0.6)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     erubi (1.10.0)
     faraday (2.2.0)
       faraday-net_http (~> 2.0)
@@ -297,6 +300,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise!
+  devise_invitable (~> 2.0.0)
   htmlbeautifier (~> 1.4)
   jbuilder (~> 2.7)
   listen (~> 3.3)
