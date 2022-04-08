@@ -2,13 +2,17 @@
 
 # Define the Users Controller
 class UsersController < ApplicationController
-  before_action :require_admin, only: [:edit, :update, :ban, :destroy]
+  before_action :require_admin, only: [
+    :edit, :update, :ban, :destroy, :resend_confirmation_instructions
+  ]
+  before_action :require_admin_or_inviter, only: [:resend_invitation]
 
   # show all users
   def index
     @users = User.all.order(created_at: :asc)
   end
 
+  # edit user roles
   def edit
     @user = User.find(params[:id])
   end
@@ -28,6 +32,29 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # resend the confirmation instructions.
+  def resend_confirmation_instructions
+    @user = User.find(params[:id])
+    if !@user.confirmed? && !@user.created_by_invite?
+      @user.resend_confirmation_instructions
+      redirect_to @user, notice: 'Confirmation instructions were resent'
+    else
+      redirect_to @user, alert: 'User already confirmed'
+    end
+  end
+
+  # resend an invitation
+  def resend_invitation
+    @user = User.find(params[:id])
+    if @user.created_by_invite? && !@user.invitation_accepted? && !@user.confirmed?
+      @user.invite!
+      redirect_to @user, notice: 'Invitation was resent'
+    else
+      redirect_to @user, alert: 'User already confirmed'
+    end
+  end
+
+  # ban the selected user
   def ban
     @user = User.find(params[:id])
     if @user.access_locked?
@@ -54,6 +81,13 @@ class UsersController < ApplicationController
   def require_admin
     # unless current_user.admin? || current_user.teacher?
     unless current_user.admin?
+      redirect_to root_path, alert: 'You are not authorized to perform this action'
+    end
+  end
+
+  def require_admin_or_inviter
+    @user = User.find(params[:id])
+    unless current_user.admin? || @user.invited_by == current_user
       redirect_to root_path, alert: 'You are not authorized to perform this action'
     end
   end
