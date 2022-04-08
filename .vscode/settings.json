@@ -14,8 +14,11 @@
   "ruby.rubocop.useBundler": true,
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
-  "sqltools.connections": []
+  "sqltools.connections": [],
   // "rubyTestExplorer.testFramework": "rspec",
   // "rubyTestExplorer.minitestDirectory": "./spec/",
-  // "rubyTestExplorer.logpanel": true
+  // "rubyTestExplorer.logpanel": true,
+  "emmet.includeLanguages": {
+    "erb": "html"
+  }
 }
