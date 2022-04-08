@@ -20,3 +20,6 @@ import "@fortawesome/fontawesome-free/css/all";
 
 // set up toastr notifications
 global.toastr = require("toastr");
+toastr.options.closeButton = true;
+toastr.options.progressBar = true;
+toastr.options.positionClass = "toast-top-center";
