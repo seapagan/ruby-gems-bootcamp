@@ -1,9 +1,138 @@
-<div class="container-fluid">
+<div class="text-center">
   <h1>
-    Hello World!
+    Ruby on Rails 6 User Management app
   </h1>
-  <%= link_to privacy_policy_path, class: "btn btn-lg btn-warning" do %>
-    <i class="fas fa-file-word"></i>
-    Privacy Policy
+</div>
+<div class="text-center">
+  <% unless user_signed_in? %>
+    <hr>
+    <% User.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(User, provider), method: :post, class: "btn btn-md btn-outline-primary", data: { disable_with: "Connecting..." } do %>
+        Sign in with
+        <%= provider.capitalize %>
+      <% end %>
+    <% end %>
   <% end %>
+</div>
+<hr>
+<div class="text-center">
+  <h2>Core features:</h2>
+</div>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-md-6">
+      <div class="text-center">
+        <h2>
+          Authentication & Authorization
+        </h2>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="fa fa-sign-in-alt"></div>
+          Basic authorization via email (Devise)
+        </li>
+        <li class="list-group-item">
+          <div class="fab fa-google"></div>
+          Social log in via Google
+        </li>
+        <li class="list-group-item">
+          <div class="fab fa-facebook"></div>
+          Social log in via Facebook
+        </li>
+        <li class="list-group-item">
+          <div class="fab fa-twitter"></div>
+          Social log in via Twitter
+        </li>
+        <li class="list-group-item">
+          <div class="fab fa-github"></div>
+          Social log in via Github
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-check-circle"></div>
+          Devise confirmable
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-binoculars"></div>
+          Devise trackable
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-key"></div>
+          Devise lockable
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-paper-plane"></div>
+          Devise invitable
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-ban"></div>
+          Banning users
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-trash"></div>
+          Deleting users
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-edit"></div>
+          Editing users
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-user-tag"></div>
+          Managing user roles (admin, teacher, student) without any gems
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-users-cog"></div>
+          Role-based access to different features (example: only admin can ban a user) without any g
+          ems</li>
+        <li class="list-group-item">
+          <div class="fa fa-robot"></div>
+          Blocking bot registrations
+        </li>
+        <li class="list-group-item">
+          <div class="fab fa-amazon"></div>
+          Sending transactional emails in production (Amazon SES)
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div class="text-center">
+        <h2>
+          Lesson & Attendance Management
+        </h2>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="fa fa-book"></div>
+          Create courses
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-user-plus"></div>
+          Add student enrollments to courses
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-cogs"></div>
+          Generate lessons based on schedule
+        </li>
+        <li class="list-group-item">
+          <div class="far fa-calendar-alt"></div>
+          View all lessons and attendances in a calender
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-tasks"></div>
+          Track lesson status (planned/confirmed/cancelled)
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-user-check"></div>
+          Track student attendances for lessons (attended/not_attended)
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-hand-holding-usd"></div>
+          Calculate student expences based on attendance
+        </li>
+        <li class="list-group-item">
+          <div class="fa fa-search-dollar"></div>
+          Calculate teacher earnings based on lessons conducted
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
