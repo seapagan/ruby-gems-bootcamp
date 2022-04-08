@@ -50,6 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'htmlbeautifier', '~> 1.4'
+gem 'invisible_captcha', '~> 2.0'
 gem 'omniauth-facebook'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-google-oauth2'
