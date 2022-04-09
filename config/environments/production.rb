@@ -19,6 +19,14 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+                                          email: {
+                                            deliver_with: :deliver,
+                                            email_prefix: '[PREFIX] ',
+                                            sender_address: %("app_error" <seapagan@gmail.com>),
+                                            exception_recipients: %w[seapagan@gmail.com]
+                                          }
+
   # for devise
   config.action_mailer.default_url_options = { host: 'rails-course.seapagan.net' }
 

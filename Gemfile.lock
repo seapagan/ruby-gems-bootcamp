@@ -106,6 +106,9 @@ GEM
       actionmailer (>= 5.0)
       devise (>= 4.6)
     erubi (1.10.0)
+    exception_notification (4.5.0)
+      actionmailer (>= 5.2, < 8)
+      activesupport (>= 5.2, < 8)
     faraday (2.2.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
@@ -303,6 +306,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise!
   devise_invitable (~> 2.0.0)
+  exception_notification (~> 4.5)
   htmlbeautifier (~> 1.4)
   invisible_captcha (~> 2.0)
   jbuilder (~> 2.7)

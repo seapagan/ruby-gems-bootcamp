@@ -57,3 +57,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'omniauth-twitter'
 gem 'rubocop', '~> 1.26' # , group: :development
+
+group :production do
+  gem 'exception_notification', '~> 4.5'
+end
