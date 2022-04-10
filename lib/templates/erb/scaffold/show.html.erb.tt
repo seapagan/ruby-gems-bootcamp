@@ -1,0 +1,18 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      <%= singular_table_name.capitalize %>
+    </h4>
+  </div>
+  <div class="card-body">
+  <% attributes.each do |attribute| %>
+    <b><%= attribute.human_name %>:</b>
+    <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    <br>
+  <% end %>
+  </div>
+  <div class="card-footer">
+    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-sm btn-warning' %>
+    <%%= link_to 'Destroy', @<%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>

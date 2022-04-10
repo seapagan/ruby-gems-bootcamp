@@ -1,0 +1,26 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      Service
+    </h4>
+  </div>
+  <div class="card-body">
+  
+    <b>Name:</b>
+    <%= @service.name %>
+    <br>
+  
+    <b>Duration:</b>
+    <%= @service.duration %>
+    <br>
+  
+    <b>Client price:</b>
+    <%= @service.client_price %>
+    <br>
+  
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Edit', edit_service_path(@service), class: 'btn btn-sm btn-warning' %>
+    <%= link_to 'Destroy', @service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>
