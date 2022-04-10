@@ -46,7 +46,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # own additions
-# gem 'devise', '~> 4.8'
+group :production do
+  gem 'exception_notification', '~> 4.5'
+end
+
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'htmlbeautifier', '~> 1.4'
@@ -56,8 +59,5 @@ gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'omniauth-twitter'
-gem 'rubocop', '~> 1.26' # , group: :development
-
-group :production do
-  gem 'exception_notification', '~> 4.5'
-end
+gem 'rubocop', '~> 1.26'
+gem 'simple_form', '~> 5.1'
