@@ -10,10 +10,10 @@
             User: <%= link_to lesson.user_id, user_path(lesson.user) %>
             Room: <%= link_to lesson.classroom_id, classroom_path(lesson.classroom) %>
             Start Time: <%= lesson.start&.strftime('%H:%M') %>
-            <%= lesson.status %>
+            <%= status_label(lesson.status) %>
             <% lesson.attendances.each do |attendance| %>
               <%= attendance.user %>
-              <%= attendance.status %>
+              <%= status_label(attendance.status) %>
             <% end %>
           </div>
         <% end %>
