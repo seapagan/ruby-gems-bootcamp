@@ -1,0 +1,34 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h4>
+      Lesson
+    </h4>
+  </div>
+  <div class="card-body">
+  
+    <b>User:</b>
+    <%= @lesson.user %>
+    <br>
+  
+    <b>Classroom:</b>
+    <%= @lesson.classroom %>
+    <br>
+  
+    <b>Course:</b>
+    <%= @lesson.course %>
+    <br>
+  
+    <b>Status:</b>
+    <%= @lesson.status %>
+    <br>
+  
+    <b>Start:</b>
+    <%= @lesson.start %>
+    <br>
+  
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Edit', edit_lesson_path(@lesson), class: 'btn btn-sm btn-warning' %>
+    <%= link_to 'Destroy', @lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>
