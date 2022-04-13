@@ -63,3 +63,5 @@ gem 'rubocop', '~> 1.26'
 gem 'simple_form', '~> 5.1'
 
 gem "ice_cube", "~> 0.16.4"
+
+gem "simple_calendar", "~> 2.4"
