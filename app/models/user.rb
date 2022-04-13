@@ -2,6 +2,11 @@
 
 # define the User class which will, surprisingly, hold all our registered users.
 class User < ApplicationRecord
+  has_many :enrollments, dependent: :restrict_with_error
+  has_many :lessons, dependent: :restrict_with_error
+  has_many :attendances, dependent: :restrict_with_error
+  has_many :courses, dependent: :restrict_with_error
+
   # :timeoutable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

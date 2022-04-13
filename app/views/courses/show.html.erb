@@ -23,7 +23,11 @@
   </div>
   <div class="card-footer">
     <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-sm btn-warning' %>
-    <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+    <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you
+    sure?' }, class: 'btn btn-sm btn-danger' %>
+    <%= link_to 'Back', courses_path, class: 'btn btn-sm btn-secondary' %>
+    <%= link_to "New Lesson", new_course_lesson_path(@course), class: 'btn
+    btn-sm btn-primary' %>
   </div>
 </div>
 <br />
@@ -45,4 +49,5 @@
     </tbody>
   </table>
 </div>
-<%= render 'courses/lessons/calendar' %>
+<p />
+  <%= render 'static_pages/calendar' %>

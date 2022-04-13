@@ -4,7 +4,8 @@ class Courses::LessonsController < ApplicationController
 
   # GET /lessons/new
   def new
-    @lesson = Lesson.new
+    @lesson = Lesson.new(classroom_id: @course.classroom_id, user_id: @course.user_id)
+    @lesson.attendances.build(@course.enrollments.as_json(only: [:user_id]))
   end
 
   # GET /lessons/1/edit
@@ -13,6 +14,7 @@ class Courses::LessonsController < ApplicationController
   # POST /lessons or /lessons.json
   def create
     @lesson = Lesson.new(lesson_params)
+    @lesson.course = @course
 
     if @lesson.save
       redirect_to @course, notice: 'Lesson was successfully created.'
