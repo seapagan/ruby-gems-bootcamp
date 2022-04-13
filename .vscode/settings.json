@@ -14,7 +14,24 @@
   "ruby.rubocop.useBundler": true,
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
-  "sqltools.connections": [],
+  "sqltools.connections": [
+    {
+      "pgOptions": {
+        "ssl": {
+          "requestCert": false,
+          "rejectUnauthorized": false
+        }
+      },
+      "previewLimit": 50,
+      "server": "ec2-44-194-4-127.compute-1.amazonaws.com",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "heroku rub gem bootcamp",
+      "database": "d328ujcobngtai",
+      "username": "uzohwhqbybxkut",
+      "password": "5c1595b769354c5112f720b9d781741b9840c998cf43a9f259f7fb0132781517"
+    }
+  ],
   // "rubyTestExplorer.testFramework": "rspec",
   // "rubyTestExplorer.minitestDirectory": "./spec/",
   // "rubyTestExplorer.logpanel": true,

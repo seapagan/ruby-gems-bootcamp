@@ -10,6 +10,9 @@
             User: <%= link_to lesson.user_id, user_path(lesson.user) %>
             Room: <%= link_to lesson.classroom_id, classroom_path(lesson.classroom) %>
             Start Time: <%= lesson.start&.strftime('%H:%M') %>
+            <% lesson.course.enrollments.each do |enrollment| %>
+              <%= enrollment.user %>
+            <% end %>
           </div>
         <% end %>
       <% end %>

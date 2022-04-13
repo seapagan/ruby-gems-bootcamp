@@ -23,3 +23,6 @@ global.toastr = require("toastr");
 toastr.options.closeButton = true;
 toastr.options.progressBar = true;
 toastr.options.positionClass = "toast-top-center";
+
+require("jquery");
+require("@nathanvda/cocoon");
