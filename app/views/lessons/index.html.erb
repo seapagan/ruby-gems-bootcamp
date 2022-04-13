@@ -12,17 +12,11 @@
     <thead>
       <tr>
         <th>Id</th>
-    	  
         <th>User</th>
-        
         <th>Classroom</th>
-        
         <th>Course</th>
-        
         <th>Status</th>
-        
         <th>Start</th>
-        
         <th>Actions</th>
       </tr>
     </thead>
@@ -30,17 +24,11 @@
       <% @lessons.each do |lesson| %>
         <%= content_tag :tr, id: dom_id(lesson), class: dom_class(lesson) do %>
           <td><%= link_to lesson.id, lesson %></td>
-          
-            <td><%= lesson.user %></td>
-          
-            <td><%= lesson.classroom %></td>
-          
-            <td><%= lesson.course %></td>
-          
-            <td><%= lesson.status %></td>
-          
-            <td><%= lesson.start %></td>
-          
+          <td><%= lesson.user %></td>
+          <td><%= lesson.classroom %></td>
+          <td><%= lesson.course_id %></td>
+          <td><%= lesson.status %></td>
+          <td><%= lesson.start %></td>
           <td>
             <%= link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-warning' %>
             <%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>

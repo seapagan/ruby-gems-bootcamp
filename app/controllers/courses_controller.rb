@@ -1,9 +1,17 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[show edit update destroy]
+  before_action :set_course, only: %i[show edit update destroy generate_lessons]
 
   # GET /courses or /courses.json
   def index
     @courses = Course.all
+  end
+
+  def generate_lessons
+    @course.schedule.occurrences(Time.now + 1.month).each do |occurrence|
+      @course.lessons.find_or_create_by(start: occurrence.to_datetime, user: @course.user,
+                                        classroom: @course.classroom)
+    end
+    redirect_to @course, notice: 'Generate Lessons : OK'
   end
 
   # GET /courses/1 or /courses/1.json

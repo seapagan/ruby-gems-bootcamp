@@ -33,18 +33,19 @@
           <td><%= course.active_days.join(", ").titleize %></td>
           <td><%= course.schedule %></td>
           <td>
-            <% course.schedule.occurrences(Time.now + 1.month).each do
-            |occurrence| %>
-            <%= occurrence.strftime('%d/%b/%Y') %>
-            <br />
-          <% end %>
-        </td>
-        <td>
-          <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
-          <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-        </td>
+            <% course.schedule.occurrences(Time.now + 1.month).each do |occurrence| %>
+              <%= occurrence&.strftime('%d/%b/%Y') %>
+              <br />
+            <% end %>
+            <%= link_to "Generate Lessons",
+            generate_lessons_course_path(course), method: :patch %>
+          </td>
+          <td>
+            <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
+            <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+          </td>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
