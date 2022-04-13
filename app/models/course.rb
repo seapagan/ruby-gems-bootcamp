@@ -13,4 +13,8 @@ class Course < ApplicationRecord
     )
     schedule
   end
+
+  def to_s
+    "#{id}: #{service} by #{user}"
+  end
 end
