@@ -17,6 +17,8 @@
         <th>Service</th>
         <th>Start Time</th>
         <th>Days</th>
+        <th>Schedule</th>
+        <th>Occurences</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -29,12 +31,20 @@
           <td><%= course.service %></td>
           <td><%= course.start_time&.strftime('%H:%M') %></td>
           <td><%= course.active_days.join(", ").titleize %></td>
+          <td><%= course.schedule %></td>
           <td>
-            <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
-            <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-          </td>
-        <% end %>
+            <% course.schedule.occurrences(Time.now + 1.month).each do
+            |occurrence| %>
+            <%= occurrence.strftime('%d/%b/%Y') %>
+            <br />
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
+          <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+        </td>
       <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
 </div>
