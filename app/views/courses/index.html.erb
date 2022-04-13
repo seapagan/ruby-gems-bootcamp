@@ -29,9 +29,9 @@
       <% @courses.each do |course| %>
         <%= content_tag :tr, id: dom_id(course), class: dom_class(course) do %>
           <td><%= link_to course.id, course %></td>
-          <td><%= course.user %></td>
-          <td><%= course.classroom %></td>
-          <td><%= course.service %></td>
+          <td><%= link_to course.user, course.user %></td>
+          <td><%= link_to course.classroom, course.classroom %></td>
+          <td><%= link_to course.service, course.service %></td>
           <td><%= course.start_time&.strftime('%H:%M') %></td>
           <td><%= course.active_days.join(", ").titleize %></td>
           <td><%= course.schedule %></td>
