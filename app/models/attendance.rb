@@ -4,7 +4,11 @@ class Attendance < ApplicationRecord
 
   validates :status, presence: true
 
-  STATUSES = [:planned, :attended, :not_attended, :a, :b, :c, :d, :e, :f]
+  # user can not attend the same lesson twice
+  validates_uniqueness_of :user_id, scope: :lesson_id
+  validates_uniqueness_of :lesson_id, scope: :user_id
+
+  STATUSES = %i[planned attended not_attended].freeze
 
   def self.statuses
     STATUSES.map { |status| [status, status] }

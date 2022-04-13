@@ -19,6 +19,9 @@
         <th>Days</th>
         <th>Schedule</th>
         <th>Occurences</th>
+        <th>Enrollments</th>
+        <th>Lessons</th>
+        <th>Attendances</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -40,6 +43,9 @@
             <%= link_to "Generate Lessons",
             generate_lessons_course_path(course), method: :patch %>
           </td>
+          <td><%= course.enrollments.count %></td>
+          <td><%= course.lessons.count %></td>
+          <td><%= course.attendances.count %></td>
           <td>
             <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
             <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
