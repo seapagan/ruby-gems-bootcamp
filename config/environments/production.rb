@@ -22,7 +22,7 @@ Rails.application.configure do
   Rails.application.config.middleware.use ExceptionNotification::Rack,
                                           email: {
                                             deliver_with: :deliver,
-                                            email_prefix: '[PREFIX] ',
+                                            email_prefix: '[SuperAuth] ',
                                             sender_address: %("app_error" <seapagan@gmail.com>),
                                             exception_recipients: %w[seapagan@gmail.com]
                                           }
