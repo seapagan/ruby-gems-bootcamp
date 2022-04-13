@@ -5,7 +5,7 @@
         <%= date %>
         <% lessons.each do |lesson| %>
           <p>
-            Id: <%= link_to lesson.id, lesson_path(lesson) %>
+            Id: <%= link_to lesson.id, edit_course_lesson_path(lesson.course, lesson) %>
             Course: <%= link_to lesson.course_id, course_path(lesson.course) %>
             User: <%= link_to lesson.user_id, user_path(lesson.user) %>
             Room: <%= link_to lesson.classroom_id, classroom_path(lesson.classroom) %>
