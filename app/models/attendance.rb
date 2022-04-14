@@ -13,6 +13,16 @@ class Attendance < ApplicationRecord
   monetize :student_price_start, as: :student_price_start_cents
   monetize :student_price_final, as: :student_price_final_cents
 
+  validate :cannot_attend_own_course_or_lesson
+
+  def cannot_attend_own_course_or_lesson
+    if user_id.present?
+      if user_id == lesson.user_id || user_id == lesson.course.user_id
+        errors.add(:user_id, 'cannot attend own course or lesson!')
+      end
+    end
+  end
+
   def self.statuses
     STATUSES.map { |status| [status, status] }
   end
