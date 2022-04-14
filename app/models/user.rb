@@ -43,10 +43,12 @@ class User < ApplicationRecord
   after_touch do
     calculate_student_total
     calculate_teacher_total
+    calculate_balance
   end
 
   monetize :student_total, as: :student_total_cents
   monetize :teacher_total, as: :teacher_total_cents
+  monetize :balance, as: :balance_cents
 
   def to_s
     email
@@ -65,4 +67,9 @@ class User < ApplicationRecord
   def calculate_teacher_total
     update_column :teacher_total, lessons.map(&:teacher_price_final).sum
   end
+
+  def calculate_balance
+    update_column :balance, (teacher_total - student_total)
+  end
+
 end
