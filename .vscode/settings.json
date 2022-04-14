@@ -1,16 +1,18 @@
 {
   "errorLens.enabled": false,
-  "ruby.format": "rubocop",
+  "ruby.format": false,
   "ruby.lint": {
-    "reek": {
-      "useBundler": true
-    },
-    "rubocop": {
-      "useBundler": true
-    },
+    "reek": false,
+    "rubocop": false,
+    // "reek": {
+    //   "useBundler": true
+    // },
+    // "rubocop": {
+    //   "useBundler": true
+    // },
     "standard": false
   },
-  "ruby.rubocop.onSave": true,
+  "ruby.rubocop.onSave": false,
   "ruby.rubocop.useBundler": true,
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
@@ -37,5 +39,6 @@
   // "rubyTestExplorer.logpanel": true,
   "emmet.includeLanguages": {
     "erb": "html"
-  }
+  },
+  "rewrap.autoWrap.enabled": false
 }

@@ -5,6 +5,20 @@ class StaticPagesController < ApplicationController
   def privacy_policy; end
 
   def calendar
-    @lessons = Lesson.all
+    if params.has_key?(:user_id)
+      lessons = Lesson.includes(:user, :classroom, :course, :attendances)
+      if params[:user_id].present?
+        lessons = lessons.where(user_id: params[:user_id])
+      end
+      if params[:classroom_id].present?
+        lessons = lessons.where(classroom_id: params[:classroom_id])
+      end
+      if params[:course_id].present?
+        lessons = lessons.where(course_id: params[:course_id])
+      end
+      @lessons = lessons.all
+    else
+      @lessons = Lesson.includes(:user, :classroom, :course, :attendances)
+    end
   end
 end
