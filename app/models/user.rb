@@ -40,6 +40,12 @@ class User < ApplicationRecord
     update(student: true)
   end
 
+  def total_attendance_price
+    attendances.map(&:student_price_start).sum
+  end
+
+  monetize :total_attendance_price, as: :total_attendance_price_cents
+
   def to_s
     email
   end

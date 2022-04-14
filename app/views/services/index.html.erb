@@ -25,7 +25,7 @@
           <td><%= link_to service.id, service %></td>
           <td><%= service.name %></td>
           <td><%= service.duration %></td>
-          <td><%= service.client_price %></td>
+          <td><%= service.client_price_cents %></td>
           <td><%= service.courses.count %></td>
           <td>
             <%= link_to 'Edit', edit_service_path(service), class: 'btn btn-sm btn-warning' %>

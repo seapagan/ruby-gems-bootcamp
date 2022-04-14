@@ -50,5 +50,10 @@
       <%= link_to 'Delete', @user, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %>
     <% end %>
   </div>
+  <div class="card-footer">
+    <b><%= 'attendances_count'.humanize %>: </b><%= @user.attendances.count %>
+    <br>
+    <b><%= 'attendances_price'.humanize %>: </b>$<%= @user.total_attendance_price_cents %>
+  </div>
   <div class="card-footer"><%= link_to 'All Users', users_path, class: "btn btn-sm btn-primary" %></div>
 </div>

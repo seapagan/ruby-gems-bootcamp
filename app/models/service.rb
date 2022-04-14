@@ -8,6 +8,7 @@ class Service < ApplicationRecord
   validates :client_price,
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 10_000 }
 
+  monetize :client_price, as: :client_price_cents
   def to_s
     name
   end
